@@ -1,0 +1,8 @@
+---
+---
+
+/* Import base styles using modern approach */
+@use "../_sass/base" as *;
+
+// Using forward for Jekyll compatibility
+@forward "base";
