@@ -1,0 +1,470 @@
+@use "sass:color";
+
+// ═══════════════════════════════════════════════════════════════
+// WARM LITERARY — A Personal Blog Aesthetic
+// Inspired by: literary journals, aged paper, writer's studies
+// ═══════════════════════════════════════════════════════════════
+
+// Color Palette — warm, inviting, personal
+$cream: #f8f5f0;           // Warm paper-like background
+$ink: #2c2825;             // Deep warm black for text
+$rust: #b4654a;            // Terracotta accent — warm, earthy
+$sage: #6b7c6b;            // Muted sage for secondary accents
+$stone: #9a918a;           // Warm gray for metadata
+$parchment: #efe9e0;       // Slightly darker cream for contrast areas
+$whisper: #e8e2d9;         // Subtle border color
+
+// Typography
+$serifDisplay: "Fraunces", Georgia, serif;    // Distinctive display font
+$serifBody: "Source Serif 4", Georgia, serif; // Readable body serif
+$mono: "JetBrains Mono", "SF Mono", monospace;
+
+// ═══════════════════════════════════════════════════════════════
+// BASE STYLES
+// ═══════════════════════════════════════════════════════════════
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: $cream;
+  // Subtle paper texture using CSS noise
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-blend-mode: soft-light;
+  background-size: 200px;
+  color: $ink;
+  font-family: $serifBody;
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  font-feature-settings: "onum" 1, "pnum" 1; // Old-style figures
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// TYPOGRAPHY
+// ═══════════════════════════════════════════════════════════════
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $serifDisplay;
+  color: $ink;
+  line-height: 1.2;
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 2.4em;
+  font-weight: 400;
+  font-variation-settings: "SOFT" 50, "WONK" 1;
+}
+
+h2 {
+  font-size: 1.6em;
+  font-weight: 500;
+  margin-top: 2em;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 2em;
+    height: 2px;
+    background: $rust;
+    margin-bottom: 0.8em;
+    opacity: 0.6;
+  }
+}
+
+h3 { font-size: 1.25em; font-weight: 600; }
+h4 { font-size: 1.1em; font-weight: 600; }
+h5, h6 {
+  font-size: 0.95em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $stone;
+}
+
+p {
+  margin: 0 0 1.4em 0;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// LINKS
+// ═══════════════════════════════════════════════════════════════
+
+a {
+  color: $rust;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background-image: linear-gradient(to right, $rust 0%, $rust 100%);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+
+  &:hover {
+    background-size: 100% 1px;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// HEADER
+// ═══════════════════════════════════════════════════════════════
+
+.site-header {
+  padding: 30px 0 25px 0;
+  margin-bottom: 40px;
+  border-bottom: 1px solid $whisper;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.site-title {
+  font-family: $serifDisplay;
+  font-size: 1.8em;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.02em;
+
+  .title-grid {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 0.9em);
+    grid-template-rows: repeat(3, 0.9em);
+    background: $ink;
+    gap: 1px;
+    padding: 1px;
+    line-height: 1;
+    transition: background 0.15s ease;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.5em;
+      background: $cream;
+      color: $ink;
+      transition: all 0.15s ease;
+    }
+
+    &:hover {
+      background: $rust;
+
+      span {
+        color: $rust;
+      }
+    }
+  }
+}
+
+.site-nav {
+  .nav-link {
+    font-family: $serifBody;
+    color: $stone;
+    font-size: 0.9em;
+    letter-spacing: 0.06em;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    background: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      color: $ink;
+      border-bottom: 1px solid $rust;
+      background: none;
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// MAIN CONTENT
+// ═══════════════════════════════════════════════════════════════
+
+main {
+  padding: 0;
+  min-height: 60vh;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// POST LIST (Homepage)
+// ═══════════════════════════════════════════════════════════════
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  > li {
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      padding-bottom: 50px;
+      margin-bottom: 50px;
+      border-bottom: 1px solid $whisper;
+    }
+  }
+}
+
+.post-meta {
+  display: block;
+  font-size: 0.8em;
+  color: $stone;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  font-family: $serifBody;
+  font-variant-numeric: tabular-nums;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// ARTICLE STYLING
+// ═══════════════════════════════════════════════════════════════
+
+article {
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0.8em;
+
+    a {
+      color: $ink;
+      background: none;
+
+      &:hover {
+        color: $rust;
+      }
+    }
+  }
+
+  h2 {
+    font-size: 1.4em;
+    margin-top: 2.2em;
+  }
+
+  h3 {
+    font-size: 1.15em;
+    margin-top: 1.8em;
+  }
+
+  // Lede paragraph — first paragraph styling
+  > p:first-of-type {
+    font-size: 1.15em;
+    line-height: 1.65;
+    color: $ink;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// POST CONTENT — Rich text elements
+// ═══════════════════════════════════════════════════════════════
+
+// Apply to all content areas
+main,
+.post-content,
+article {
+  // Lists
+  ul, ol {
+    padding-left: 1.2em;
+    margin: 1.2em 0;
+
+    li {
+      margin-bottom: 0.5em;
+      padding-left: 0.3em;
+    }
+  }
+
+  ul:not(.post-list) {
+    list-style: none;
+
+    > li::before {
+      content: "–";
+      color: $rust;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1.2em;
+    }
+  }
+
+  // Images
+  img {
+    max-width: 100%;
+    border-radius: 2px;
+    margin: 2em 0;
+  }
+
+  // Inline code
+  code {
+    font-family: $mono;
+    font-size: 0.85em;
+    background: $parchment;
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    color: $ink;
+  }
+
+  // Code blocks
+  pre {
+    background: $parchment;
+    border-radius: 3px;
+    padding: 1.2em 1.4em;
+    overflow-x: auto;
+    margin: 1.8em 0;
+    border-left: 3px solid $rust;
+    font-size: 0.9em;
+    line-height: 1.5;
+
+    code {
+      background: transparent;
+      padding: 0;
+      font-size: 0.95em;
+    }
+  }
+
+  // Blockquotes
+  blockquote {
+    margin: 2em 0;
+    padding: 0 0 0 1.5em;
+    border-left: 2px solid $rust;
+    font-style: italic;
+    color: color.adjust($ink, $lightness: 15%);
+
+    p {
+      margin-bottom: 0;
+    }
+
+    // Attribution styling
+    cite, em:last-child {
+      display: block;
+      margin-top: 0.8em;
+      font-style: normal;
+      font-size: 0.9em;
+      color: $stone;
+
+      &::before {
+        content: "— ";
+      }
+    }
+  }
+
+  // Horizontal rules
+  hr {
+    border: none;
+    text-align: center;
+    margin: 3em 0;
+
+    &::before {
+      content: "· · ·";
+      color: $stone;
+      letter-spacing: 0.5em;
+    }
+  }
+
+  // Strong/Bold
+  strong {
+    font-weight: 600;
+    color: $ink;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// FOOTER
+// ═══════════════════════════════════════════════════════════════
+
+.site-footer {
+  border-top: 1px solid $whisper;
+  margin-top: 80px;
+  padding: 40px 0 60px 0;
+  text-align: center;
+
+  p {
+    font-size: 0.85em;
+    color: $stone;
+    letter-spacing: 0.05em;
+    margin: 0;
+  }
+
+  a {
+    color: $stone;
+
+    &:hover {
+      color: $rust;
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RESPONSIVE
+// ═══════════════════════════════════════════════════════════════
+
+@media (max-width: 600px) {
+  body {
+    font-size: 17px;
+  }
+
+  .site-header {
+    padding: 40px 0 30px 0;
+  }
+
+  .site-title {
+    font-size: 1.5em;
+  }
+
+  h1 {
+    font-size: 1.9em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  .header-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .site-nav .nav-link {
+    font-size: 0.85em;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SELECTION
+// ═══════════════════════════════════════════════════════════════
+
+::selection {
+  background: rgba($rust, 0.2);
+  color: $ink;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PRINT STYLES
+// ═══════════════════════════════════════════════════════════════
+
+@media print {
+  body {
+    background: white;
+    font-size: 12pt;
+  }
+
+  .site-header,
+  .site-footer {
+    display: none;
+  }
+}

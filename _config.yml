@@ -1,0 +1,32 @@
+url: "https://www.btucker.net" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "why not ben" # the name of your site, e.g. ACME Corp.
+description: "Personal website and blog of Ben Tucker"
+timezone: America/Chicago
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# GitHub Pages specific settings
+github_username: btucker
+domain: btucker.net  # if you want to force HTTPS
+
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+sass:
+  style: compressed
+  load_paths:
+    - _sass
+    - node_modules
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md

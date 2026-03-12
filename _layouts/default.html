@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <!-- Browser theme color -->
+    <meta name="theme-color" content="#b4654a">
+    <meta name="msapplication-navbutton-color" content="#b4654a">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#b4654a">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <!-- Fraunces: A distinctive variable display serif with optical size, softness, and "wonk" axes -->
+    <!-- Source Serif 4: A readable body serif with old-style figures -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400;9..144,500;9..144,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <!-- Favicon -->
+    <link rel="icon" href="{{ "/assets/images/favicon.svg" | relative_url }}" type="image/svg+xml">
+    <link rel="alternate icon" href="{{ "/assets/images/favicon.png" | relative_url }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ "/assets/images/apple-touch-icon.png" | relative_url }}">
+    {% seo %}
+    {% feed_meta %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-container">
+        <h1 class="site-title">
+          <a href="{{ "/" | relative_url }}" class="title-grid" aria-label="{{ site.title }}">
+            <span>w</span><span>h</span><span>y</span>
+            <span>n</span><span>o</span><span>t</span>
+            <span>b</span><span>e</span><span>n</span>
+          </a>
+        </h1>
+        <nav class="site-nav">
+          <a href="{{ "/about/" | relative_url }}" class="nav-link">About</a>
+        </nav>
+      </div>
+    </header>
+    
+    <main class="container">
+      {{ content }}
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; {{ site.time | date: '%Y' }}</p>
+      </div>
+    </footer>
+  </body>
+</html>
