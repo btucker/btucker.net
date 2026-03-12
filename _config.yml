@@ -2,6 +2,7 @@ url: "https://www.btucker.net" # the base hostname & protocol for your site, e.g
 baseurl: "" # the subpath of your site, e.g. /blog
 title: "why not ben" # the name of your site, e.g. ACME Corp.
 description: "Personal website and blog of Ben Tucker"
+og_image: /assets/images/og-image.png
 timezone: America/Chicago
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
