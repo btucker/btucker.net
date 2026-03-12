@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#f8f5f0">
     <meta name="msapplication-navbutton-color" content="#f8f5f0">
     <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5f0">
-    <title>{{ page.title }} - {{ site.title }}</title>
+    <title>{% if page.title == site.title %}{{ site.title }}{% else %}{{ page.title }} - {{ site.title }}{% endif %}</title>
     <!-- Fraunces: A distinctive variable display serif with optical size, softness, and "wonk" axes -->
     <!-- Source Serif 4: A readable body serif with old-style figures -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

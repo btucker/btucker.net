@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Home"
+title: "why not ben"
 ---
 
 <ul class="post-list">
