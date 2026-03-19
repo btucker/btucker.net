@@ -1,6 +1,6 @@
---
+---
 title: The Fuzzy Front End, in High Fidelity
---
+---
 
 There's a phase in product development people call "the fuzzy front end." It's the messy beginning -- when you're not sure what you're building, who it's really for, or whether the idea even holds together. Sketches on napkins was the trope, but by necessity artifacts wore their roughness openly. Appearance matched the maturity of the thinking.
 
