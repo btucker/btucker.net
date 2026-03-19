@@ -175,6 +175,9 @@ a {
 }
 
 .site-nav {
+  display: flex;
+  gap: 1.5rem;
+
   .nav-link {
     font-family: $serifBody;
     color: $stone;
